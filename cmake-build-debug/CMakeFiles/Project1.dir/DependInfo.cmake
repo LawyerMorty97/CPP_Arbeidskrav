@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Mathias Berntsen/Documents/Kristiania/C++/Project/Core.cpp" "C:/Users/Mathias Berntsen/Documents/Kristiania/C++/Project/cmake-build-debug/CMakeFiles/Project1.dir/Core.cpp.obj"
-  "C:/Users/Mathias Berntsen/Documents/Kristiania/C++/Project/InputManager.cpp" "C:/Users/Mathias Berntsen/Documents/Kristiania/C++/Project/cmake-build-debug/CMakeFiles/Project1.dir/InputManager.cpp.obj"
-  "C:/Users/Mathias Berntsen/Documents/Kristiania/C++/Project/Utils.cpp" "C:/Users/Mathias Berntsen/Documents/Kristiania/C++/Project/cmake-build-debug/CMakeFiles/Project1.dir/Utils.cpp.obj"
-  "C:/Users/Mathias Berntsen/Documents/Kristiania/C++/Project/main.cpp" "C:/Users/Mathias Berntsen/Documents/Kristiania/C++/Project/cmake-build-debug/CMakeFiles/Project1.dir/main.cpp.obj"
+  "C:/Users/Mathias Berntsen/Documents/Kristiania/C++/CPP_Arbeidskrav/Core.cpp" "C:/Users/Mathias Berntsen/Documents/Kristiania/C++/CPP_Arbeidskrav/cmake-build-debug/CMakeFiles/Project1.dir/Core.cpp.obj"
+  "C:/Users/Mathias Berntsen/Documents/Kristiania/C++/CPP_Arbeidskrav/InputManager.cpp" "C:/Users/Mathias Berntsen/Documents/Kristiania/C++/CPP_Arbeidskrav/cmake-build-debug/CMakeFiles/Project1.dir/InputManager.cpp.obj"
+  "C:/Users/Mathias Berntsen/Documents/Kristiania/C++/CPP_Arbeidskrav/Utils.cpp" "C:/Users/Mathias Berntsen/Documents/Kristiania/C++/CPP_Arbeidskrav/cmake-build-debug/CMakeFiles/Project1.dir/Utils.cpp.obj"
+  "C:/Users/Mathias Berntsen/Documents/Kristiania/C++/CPP_Arbeidskrav/main.cpp" "C:/Users/Mathias Berntsen/Documents/Kristiania/C++/CPP_Arbeidskrav/cmake-build-debug/CMakeFiles/Project1.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

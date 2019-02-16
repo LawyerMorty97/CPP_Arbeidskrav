@@ -11,7 +11,7 @@
 #include <SDL.h>
 
 #include "Utils.h"
-#include "InputManager.h"
+//#include "InputManager.h"
 
 class Core {
 public:

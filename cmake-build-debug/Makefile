@@ -47,24 +47,13 @@ RM = "C:\Program Files\JetBrains\CLion 2018.3.2\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Mathias Berntsen\Documents\Kristiania\C++\Project"
+CMAKE_SOURCE_DIR = "C:\Users\Mathias Berntsen\Documents\Kristiania\C++\CPP_Arbeidskrav"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Mathias Berntsen\Documents\Kristiania\C++\Project\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\Mathias Berntsen\Documents\Kristiania\C++\CPP_Arbeidskrav\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"C:\Program Files\JetBrains\CLion 2018.3.2\bin\cmake\win\bin\cmake.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -77,11 +66,22 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	"C:\Program Files\JetBrains\CLion 2018.3.2\bin\cmake\win\bin\cmake.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Mathias Berntsen\Documents\Kristiania\C++\Project\cmake-build-debug\CMakeFiles" "C:\Users\Mathias Berntsen\Documents\Kristiania\C++\Project\cmake-build-debug\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Mathias Berntsen\Documents\Kristiania\C++\CPP_Arbeidskrav\cmake-build-debug\CMakeFiles" "C:\Users\Mathias Berntsen\Documents\Kristiania\C++\CPP_Arbeidskrav\cmake-build-debug\CMakeFiles\progress.marks"
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Mathias Berntsen\Documents\Kristiania\C++\Project\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Mathias Berntsen\Documents\Kristiania\C++\CPP_Arbeidskrav\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -110,17 +110,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Project1
+# Target rules for targets named C++_Arbeidskrav
 
 # Build rule for target.
-Project1: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 Project1
-.PHONY : Project1
+C++_Arbeidskrav: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 C++_Arbeidskrav
+.PHONY : C++_Arbeidskrav
 
 # fast build rule for target.
-Project1/fast:
-	$(MAKE) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/build
-.PHONY : Project1/fast
+C++_Arbeidskrav/fast:
+	$(MAKE) -f CMakeFiles\C++_Arbeidskrav.dir\build.make CMakeFiles/C++_Arbeidskrav.dir/build
+.PHONY : C++_Arbeidskrav/fast
 
 Core.obj: Core.cpp.obj
 
@@ -128,7 +128,7 @@ Core.obj: Core.cpp.obj
 
 # target to build an object file
 Core.cpp.obj:
-	$(MAKE) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/Core.cpp.obj
+	$(MAKE) -f CMakeFiles\C++_Arbeidskrav.dir\build.make CMakeFiles/C++_Arbeidskrav.dir/Core.cpp.obj
 .PHONY : Core.cpp.obj
 
 Core.i: Core.cpp.i
@@ -137,7 +137,7 @@ Core.i: Core.cpp.i
 
 # target to preprocess a source file
 Core.cpp.i:
-	$(MAKE) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/Core.cpp.i
+	$(MAKE) -f CMakeFiles\C++_Arbeidskrav.dir\build.make CMakeFiles/C++_Arbeidskrav.dir/Core.cpp.i
 .PHONY : Core.cpp.i
 
 Core.s: Core.cpp.s
@@ -146,7 +146,7 @@ Core.s: Core.cpp.s
 
 # target to generate assembly for a file
 Core.cpp.s:
-	$(MAKE) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/Core.cpp.s
+	$(MAKE) -f CMakeFiles\C++_Arbeidskrav.dir\build.make CMakeFiles/C++_Arbeidskrav.dir/Core.cpp.s
 .PHONY : Core.cpp.s
 
 InputManager.obj: InputManager.cpp.obj
@@ -155,7 +155,7 @@ InputManager.obj: InputManager.cpp.obj
 
 # target to build an object file
 InputManager.cpp.obj:
-	$(MAKE) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/InputManager.cpp.obj
+	$(MAKE) -f CMakeFiles\C++_Arbeidskrav.dir\build.make CMakeFiles/C++_Arbeidskrav.dir/InputManager.cpp.obj
 .PHONY : InputManager.cpp.obj
 
 InputManager.i: InputManager.cpp.i
@@ -164,7 +164,7 @@ InputManager.i: InputManager.cpp.i
 
 # target to preprocess a source file
 InputManager.cpp.i:
-	$(MAKE) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/InputManager.cpp.i
+	$(MAKE) -f CMakeFiles\C++_Arbeidskrav.dir\build.make CMakeFiles/C++_Arbeidskrav.dir/InputManager.cpp.i
 .PHONY : InputManager.cpp.i
 
 InputManager.s: InputManager.cpp.s
@@ -173,7 +173,7 @@ InputManager.s: InputManager.cpp.s
 
 # target to generate assembly for a file
 InputManager.cpp.s:
-	$(MAKE) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/InputManager.cpp.s
+	$(MAKE) -f CMakeFiles\C++_Arbeidskrav.dir\build.make CMakeFiles/C++_Arbeidskrav.dir/InputManager.cpp.s
 .PHONY : InputManager.cpp.s
 
 Utils.obj: Utils.cpp.obj
@@ -182,7 +182,7 @@ Utils.obj: Utils.cpp.obj
 
 # target to build an object file
 Utils.cpp.obj:
-	$(MAKE) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/Utils.cpp.obj
+	$(MAKE) -f CMakeFiles\C++_Arbeidskrav.dir\build.make CMakeFiles/C++_Arbeidskrav.dir/Utils.cpp.obj
 .PHONY : Utils.cpp.obj
 
 Utils.i: Utils.cpp.i
@@ -191,7 +191,7 @@ Utils.i: Utils.cpp.i
 
 # target to preprocess a source file
 Utils.cpp.i:
-	$(MAKE) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/Utils.cpp.i
+	$(MAKE) -f CMakeFiles\C++_Arbeidskrav.dir\build.make CMakeFiles/C++_Arbeidskrav.dir/Utils.cpp.i
 .PHONY : Utils.cpp.i
 
 Utils.s: Utils.cpp.s
@@ -200,7 +200,7 @@ Utils.s: Utils.cpp.s
 
 # target to generate assembly for a file
 Utils.cpp.s:
-	$(MAKE) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/Utils.cpp.s
+	$(MAKE) -f CMakeFiles\C++_Arbeidskrav.dir\build.make CMakeFiles/C++_Arbeidskrav.dir/Utils.cpp.s
 .PHONY : Utils.cpp.s
 
 main.obj: main.cpp.obj
@@ -209,7 +209,7 @@ main.obj: main.cpp.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/main.cpp.obj
+	$(MAKE) -f CMakeFiles\C++_Arbeidskrav.dir\build.make CMakeFiles/C++_Arbeidskrav.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -218,7 +218,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles\C++_Arbeidskrav.dir\build.make CMakeFiles/C++_Arbeidskrav.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -227,7 +227,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles\C++_Arbeidskrav.dir\build.make CMakeFiles/C++_Arbeidskrav.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -236,9 +236,9 @@ help:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
-	@echo ... rebuild_cache
-	@echo ... Project1
+	@echo ... C++_Arbeidskrav
 	@echo ... edit_cache
+	@echo ... rebuild_cache
 	@echo ... Core.obj
 	@echo ... Core.i
 	@echo ... Core.s

@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/Mathias Berntsen/Documents/Kristiania/C++/Project
+# Install script for directory: C:/Users/Mathias Berntsen/Documents/Kristiania/C++/CPP_Arbeidskrav
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Arbeidskrav")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Project1")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Mathias Berntsen/Documents/Kristiania/C++/Project/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Mathias Berntsen/Documents/Kristiania/C++/CPP_Arbeidskrav/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

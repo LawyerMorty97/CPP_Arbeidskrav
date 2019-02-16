@@ -58,45 +58,45 @@ RM = "C:\Program Files\JetBrains\CLion 2018.3.2\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Mathias Berntsen\Documents\Kristiania\C++\Project"
+CMAKE_SOURCE_DIR = "C:\Users\Mathias Berntsen\Documents\Kristiania\C++\CPP_Arbeidskrav"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Mathias Berntsen\Documents\Kristiania\C++\Project\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\Mathias Berntsen\Documents\Kristiania\C++\CPP_Arbeidskrav\cmake-build-debug"
 
 #=============================================================================
-# Target rules for target CMakeFiles/Project1.dir
+# Target rules for target CMakeFiles/C++_Arbeidskrav.dir
 
 # All Build rule for target.
-CMakeFiles/Project1.dir/all:
-	$(MAKE) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/depend
-	$(MAKE) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\Mathias Berntsen\Documents\Kristiania\C++\Project\cmake-build-debug\CMakeFiles" --progress-num=1,2,3,4,5 "Built target Project1"
-.PHONY : CMakeFiles/Project1.dir/all
+CMakeFiles/C++_Arbeidskrav.dir/all:
+	$(MAKE) -f CMakeFiles\C++_Arbeidskrav.dir\build.make CMakeFiles/C++_Arbeidskrav.dir/depend
+	$(MAKE) -f CMakeFiles\C++_Arbeidskrav.dir\build.make CMakeFiles/C++_Arbeidskrav.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\Mathias Berntsen\Documents\Kristiania\C++\CPP_Arbeidskrav\cmake-build-debug\CMakeFiles" --progress-num=1,2,3,4,5 "Built target C++_Arbeidskrav"
+.PHONY : CMakeFiles/C++_Arbeidskrav.dir/all
 
 # Include target in all.
-all: CMakeFiles/Project1.dir/all
+all: CMakeFiles/C++_Arbeidskrav.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Project1.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Mathias Berntsen\Documents\Kristiania\C++\Project\cmake-build-debug\CMakeFiles" 5
-	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/Project1.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Mathias Berntsen\Documents\Kristiania\C++\Project\cmake-build-debug\CMakeFiles" 0
-.PHONY : CMakeFiles/Project1.dir/rule
+CMakeFiles/C++_Arbeidskrav.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Mathias Berntsen\Documents\Kristiania\C++\CPP_Arbeidskrav\cmake-build-debug\CMakeFiles" 5
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/C++_Arbeidskrav.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Mathias Berntsen\Documents\Kristiania\C++\CPP_Arbeidskrav\cmake-build-debug\CMakeFiles" 0
+.PHONY : CMakeFiles/C++_Arbeidskrav.dir/rule
 
 # Convenience name for target.
-Project1: CMakeFiles/Project1.dir/rule
+C++_Arbeidskrav: CMakeFiles/C++_Arbeidskrav.dir/rule
 
-.PHONY : Project1
-
-# clean rule for target.
-CMakeFiles/Project1.dir/clean:
-	$(MAKE) -f CMakeFiles\Project1.dir\build.make CMakeFiles/Project1.dir/clean
-.PHONY : CMakeFiles/Project1.dir/clean
+.PHONY : C++_Arbeidskrav
 
 # clean rule for target.
-clean: CMakeFiles/Project1.dir/clean
+CMakeFiles/C++_Arbeidskrav.dir/clean:
+	$(MAKE) -f CMakeFiles\C++_Arbeidskrav.dir\build.make CMakeFiles/C++_Arbeidskrav.dir/clean
+.PHONY : CMakeFiles/C++_Arbeidskrav.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/C++_Arbeidskrav.dir/clean
 
 .PHONY : clean
 

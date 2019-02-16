@@ -1,3 +1,0 @@
-C:/Users/Mathias Berntsen/Documents/Kristiania/C++/CPP_Arbeidskrav/cmake-build-debug/CMakeFiles/C++_Arbeidskrav.dir
-C:/Users/Mathias Berntsen/Documents/Kristiania/C++/CPP_Arbeidskrav/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Mathias Berntsen/Documents/Kristiania/C++/CPP_Arbeidskrav/cmake-build-debug/CMakeFiles/rebuild_cache.dir

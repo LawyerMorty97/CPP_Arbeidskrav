@@ -1,0 +1,1 @@
+This project is using CLion (with MinGW, GNU 8.2.0)

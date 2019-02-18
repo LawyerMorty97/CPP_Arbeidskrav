@@ -10,17 +10,29 @@
 #include "Utils.h"
 
 class Image {
+    SDL_Renderer* renderer;
+    SDL_Rect rect;
+
+    bool mCanRender = false;
+    float _x, _y, _w, _h;
 public:
     SDL_Surface* surface;
     SDL_Texture* texture;
-    SDL_Rect position;
 
-    Image(std::string filename);
+    const float &x;
+    const float &y;
+    const float &w;
+    const float &h;
+
+    Image(std::string filename, int x, int y, SDL_Renderer* renderer);
     ~Image();
 
-    float x, y;
-private:
-    bool mCanRender = false;
+    bool Draw();
+
+    std::tuple<float, float> getPosition();
+    std::tuple<float, float> getSize();
+    void setPosition(float x, float y);
+    void setSize(float w, float h);
 };
 
 

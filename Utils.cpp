@@ -11,3 +11,14 @@ char* Utils::stringToChar(std::string str) {
 
     return result;
 }
+
+void Utils::error(std::string msg) {
+    std::cerr << "ERROR: " << msg << "." << std::endl;
+    exit(EXIT_FAILURE);
+}
+
+void Utils::error_sdl(std::string msg) {
+    std::cerr << "SDL ERROR: " << msg << ". (" << SDL_GetError() << ")" << std::endl;
+    SDL_Quit();
+    exit(EXIT_FAILURE);
+}

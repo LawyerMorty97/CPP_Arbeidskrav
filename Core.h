@@ -13,23 +13,14 @@
 #include "Utils.h"
 #include "InputManager.h"
 
+#include "Image.h"
+
 class Core {
 public:
-
-    struct Image {
-        SDL_Rect coords;
-        SDL_Texture* txd;
-    };
-
     Core(std::string title, int w_size, int h_size);
     ~Core();
 
-    void error(std::string msg);
-    void error_sdl(std::string msg);
     void Quit();
-
-    Image CreateImage(std::string image);
-
 private:
     int w_width, w_height; // Window dimensions
     SDL_Window* window;

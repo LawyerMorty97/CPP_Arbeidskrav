@@ -101,7 +101,7 @@ typedef struct SDL_RWops
             void *readableByteChannelRef;
             void *readMethod;
             void *assetFileDescriptorRef;
-            long position;
+            long rect;
             long size;
             long offset;
             int fd;

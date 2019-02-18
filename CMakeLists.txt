@@ -15,6 +15,6 @@ set(SDL2_LIB "${LIB_DIR}/libSDL2.dll.a;${LIB_DIR}/libSDL2main.a")
 
 include_directories(${INC_DIR} ${OPENGL_INCLUDE_DIR})
 
-add_executable(${PROJECT_NAME} main.cpp Core.cpp Utils.cpp InputManager.cpp)
+add_executable(${PROJECT_NAME} main.cpp Core.cpp Image.cpp Utils.cpp InputManager.cpp)
 
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIB} ${OPENGL_LIBRARIES})

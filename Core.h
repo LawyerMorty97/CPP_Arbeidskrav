@@ -11,7 +11,7 @@
 #include <SDL.h>
 
 #include "Utils.h"
-//#include "InputManager.h"
+#include "InputManager.h"
 
 class Core {
 public:
@@ -34,6 +34,8 @@ private:
     int w_width, w_height; // Window dimensions
     SDL_Window* window;
     SDL_Renderer* renderer;
+
+    InputManager* input;
 };
 
 

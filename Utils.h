@@ -6,6 +6,7 @@
 #define ARBEIDSKRAV_UTILS_H
 
 #include <iostream>
+#include <SDL.h>
 
 class Utils {
 public:

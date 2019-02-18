@@ -60,15 +60,46 @@ Core::Core(std::string title, int w_size, int h_size) {
 
     Image image = CreateImage("lmorty.bmp");
 
-    int nK = 0;
-    const Uint8 *keys = nullptr;
+    // Input
+    input = InputManager::instance();
+
     float x = 0.f;
+    float y = 0.f;
 
     SDL_Event e;
     bool quit = false;
 
     while (!quit) {
-        SDL_PumpEvents();
+        input->Update();
+
+        while(SDL_PollEvent(&e))
+            if (e.type == SDL_QUIT)
+                quit = true;
+
+        if (input->KeyUp(SDL_SCANCODE_ESCAPE))
+            quit = true;
+
+        if (input->KeyStillDown(SDL_SCANCODE_A) || input->KeyStillDown(SDL_SCANCODE_LEFT)) {
+            x -= 0.1f;
+            image.coords.x = static_cast<int>(x);
+        }
+
+        if (input->KeyStillDown(SDL_SCANCODE_D) || input->KeyStillDown(SDL_SCANCODE_RIGHT)) {
+            x += 0.1f;
+            image.coords.x = static_cast<int>(x);
+        }
+
+        if (input->KeyStillDown(SDL_SCANCODE_W) || input->KeyStillDown(SDL_SCANCODE_UP)) {
+            y -= 0.1f;
+            image.coords.y = static_cast<int>(y);
+        }
+
+        if (input->KeyStillDown(SDL_SCANCODE_S) || input->KeyStillDown(SDL_SCANCODE_DOWN)) {
+            y += 0.1f;
+            image.coords.y = static_cast<int>(y);
+        }
+
+        /*SDL_PumpEvents();
         while (SDL_PollEvent(&e)) {
             if (e.type == SDL_QUIT)
                 quit = true;
@@ -89,7 +120,7 @@ Core::Core(std::string title, int w_size, int h_size) {
         if (keys[SDL_SCANCODE_LEFT] || keys[SDL_SCANCODE_A]) {
             x -= 0.1;
             image.coords.x = static_cast<int>(x);
-        }
+        }*/
 
         SDL_RenderCopy(renderer, image.txd, nullptr, &image.coords);
 

@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "Core.h"
+#include "src/Core.h"
 
 Core* core;
 

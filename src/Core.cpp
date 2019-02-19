@@ -80,6 +80,7 @@ void Core::Update() {
     }
 
     if (input->KeyUp(SDL_SCANCODE_ESCAPE))
+        
         quit = true;
 
     if (input->KeyStillDown(SDL_SCANCODE_A) || input->KeyStillDown(SDL_SCANCODE_LEFT)) {

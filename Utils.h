@@ -12,6 +12,7 @@ class Utils {
 public:
     static char* stringToChar(std::string str);
 
+    static void message(std::string msg);
     static void error(std::string msg);
     static void error_sdl(std::string msg);
 };

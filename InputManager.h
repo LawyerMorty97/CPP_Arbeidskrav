@@ -14,10 +14,6 @@ class InputManager {
 public:
     static InputManager *instance();
 
-    bool operator==(const InputManager &rhs) const;
-
-    bool operator!=(const InputManager &rhs) const;
-
     bool KeyDown(int iKeyIndex);
     bool KeyStillDown(int iKeyIndex);
     bool KeyUp(int iKeyIndex);
@@ -28,6 +24,8 @@ public:
     bool MouseUp(int iButton);
     bool MouseStillUp(int iButton);
 
+    std::tuple<int, int> MousePosition();
+
     void Update();
 
 protected:
@@ -35,17 +33,18 @@ protected:
     std::unique_ptr<Uint8> oldKeys;
     int keyCount;
 
-    int mouseX;
-    int mouseY;
+    int mouseX, mouseY;
 
-    Uint8 buttons;
-    Uint8 oldButtons;
+    Uint32 buttons;
+    Uint32 oldButtons;
 private:
     static InputManager *inst_;
 
     InputManager() {
         keys = SDL_GetKeyboardState(&keyCount);
         oldKeys = std::unique_ptr<Uint8>(new Uint8[keyCount]);
+
+        buttons = SDL_GetRelativeMouseState(&mouseX, &mouseY);
     }
 };
 

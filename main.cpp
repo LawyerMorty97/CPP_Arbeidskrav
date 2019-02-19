@@ -2,12 +2,11 @@
 
 #include "Core.h"
 
+Core* core;
+
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-
-    Core c("Test", 640, 480);
-
-    c.Quit();
+    core = Core::instance();
+    core->Setup("Hello World", 800, 600);
 
     return 0;
 }

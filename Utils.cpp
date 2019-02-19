@@ -12,6 +12,10 @@ char* Utils::stringToChar(std::string str) {
     return result;
 }
 
+void Utils::message(std::string msg) {
+    std::cout << "MESSAGE: " << msg << "." << std::endl;
+}
+
 void Utils::error(std::string msg) {
     std::cerr << "ERROR: " << msg << "." << std::endl;
     exit(EXIT_FAILURE);

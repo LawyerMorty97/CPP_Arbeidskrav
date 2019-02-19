@@ -17,16 +17,36 @@
 
 class Core {
 public:
-    Core(std::string title, int w_size, int h_size);
-    ~Core();
+    static Core* instance();
 
-    void Quit();
-private:
+    void Setup(std::string title, int w_size, int h_size);
+protected:
     int w_width, w_height; // Window dimensions
+    bool quit = false;
+    bool setup = false;
+
+    std::string title;
+
     SDL_Window* window;
     SDL_Renderer* renderer;
+    SDL_Event event;
 
     InputManager* input;
+
+    Image* image;
+private:
+    static Core* inst_;
+
+    Core() {
+
+    };
+    ~Core();
+
+    void SetupSDL();
+    void Quit();
+
+    void Update();
+    void Draw();
 };
 
 

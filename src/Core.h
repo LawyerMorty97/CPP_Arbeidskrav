@@ -17,6 +17,7 @@
 #include "imgui/imgui_sdl.h"
 
 #include "Image.h"
+#include "ImageManager.h"
 
 class Core {
 public:
@@ -37,8 +38,7 @@ protected:
 
     InputManager* input;
 
-    Image* image1;
-    Image* image2;
+    ImageManager* imageManager;
 private:
     static Core* inst_;
 

@@ -20,6 +20,8 @@ Image::Image(std::string filename, int x, int y, int w, int h, SDL_Renderer* ren
     rect.w = w;
     rect.h = h;
 
+    SDL_FreeSurface(surface);
+
     _x = x;
     _y = y;
     _w = w;

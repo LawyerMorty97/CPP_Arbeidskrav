@@ -22,8 +22,8 @@ void Core::Setup(std::string title, int w_size, int h_size) {
     SetupSDL();
     setup = true;
 
-    image1 = new Image("lmorty.bmp", 0, 0, 128, 128, renderer);
-    image2 = new Image("rick.bmp", 300, 0, 128, 128, renderer);
+    imageManager->Add("lmorty.bmp", 0, 0, 128, 128);
+    imageManager->Add("rick.bmp", 128, 0, 128, 128);
 
     while (!quit) {
         Update();
@@ -34,7 +34,8 @@ void Core::Setup(std::string title, int w_size, int h_size) {
 }
 
 void Core::Quit() {
-    delete image1, image2;
+    delete input;
+    delete imageManager;
 
     Utils::message("Deinitialized ImGui");
     ImGuiSDL::Deinitialize();
@@ -79,6 +80,7 @@ void Core::SetupSDL() {
     ImGui::CreateContext();
     ImGuiSDL::Initialize(renderer, w_width, w_height);
 
+    imageManager = ImageManager::instance(renderer);
     input = InputManager::instance();
 }
 
@@ -109,6 +111,8 @@ void Core::Update() {
     if (input->KeyUp(SDL_SCANCODE_ESCAPE))
         quit = true;
 
+    Image* image1 = imageManager->Get(0);
+    Image* image2 = imageManager->Get(1);
     if (input->KeyStillDown(SDL_SCANCODE_A)) {
         image1->setPosition(image1->x - 0.1f, image1->y);
     }
@@ -152,8 +156,7 @@ void Core::Draw() {
     SDL_SetRenderDrawColor(renderer, 128, 255, 128, 255); // Light Green
     SDL_RenderClear(renderer);
 
-    image1->Draw();
-    image2->Draw();
+    imageManager->Draw();
 
     ImGui::Render();
     ImGuiSDL::Render(ImGui::GetDrawData());

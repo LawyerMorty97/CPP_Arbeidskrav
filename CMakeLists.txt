@@ -16,6 +16,6 @@ set(SDL2_TTF_LIB "${LIB_DIR}/libSDL2_ttf.dll.a")
 
 include_directories(${INC_DIR} ${OPENGL_INCLUDE_DIR})
 
-add_executable(${PROJECT_NAME} main.cpp src/Core.cpp src/Image.cpp src/Utils.cpp src/InputManager.cpp)
+add_executable(${PROJECT_NAME} main.cpp src/Core.cpp src/Image.cpp src/Utils.cpp src/InputManager.cpp src/ImageManager.cpp src/ImageManager.h imgui/imgui.cpp imgui/imgui_draw.cpp imgui/imgui_sdl.cpp imgui/imgui_widgets.cpp imgui/imgui_demo.cpp)
 
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIB} ${SDL2_TTF_LIB} ${OPENGL_LIBRARIES})

@@ -22,7 +22,8 @@ void Core::Setup(std::string title, int w_size, int h_size) {
     SetupSDL();
     setup = true;
 
-    image = new Image("lmorty.bmp", 0, 0, renderer);
+    image1 = new Image("lmorty.bmp", 0, 0, 128, 128, renderer);
+    image2 = new Image("rick.bmp", 300, 0, 128, 128, renderer);
 
     while (!quit) {
         Update();
@@ -33,10 +34,20 @@ void Core::Setup(std::string title, int w_size, int h_size) {
 }
 
 void Core::Quit() {
-    SDL_DestroyWindow(window);
-    Utils::message("Destroyed SDL window");
-    SDL_DestroyRenderer(renderer);
+    delete image1, image2;
+
+    Utils::message("Deinitialized ImGui");
+    ImGuiSDL::Deinitialize();
+
     Utils::message("Destroyed SDL renderer");
+    SDL_DestroyRenderer(renderer);
+
+    Utils::message("Destroyed SDL window");
+    SDL_DestroyWindow(window);
+
+    Utils::message("Destroyed ImGui Context");
+    ImGui::DestroyContext();
+
     SDL_Quit();
     Utils::message("Quit SDL");
 
@@ -65,46 +76,69 @@ void Core::SetupSDL() {
         Utils::message("Created a SDL renderer");
     }
 
-    SDL_SetRenderDrawColor(renderer, 128, 255, 128, 255); // Light Green
-    SDL_RenderClear(renderer);
+    ImGui::CreateContext();
+    ImGuiSDL::Initialize(renderer, w_width, w_height);
 
     input = InputManager::instance();
 }
 
 void Core::Update() {
     input->Update();
+    ImGuiIO& io = ImGui::GetIO();
 
     while(SDL_PollEvent(&event)) {
         if (event.type == SDL_QUIT)
             quit = true;
+        else if (event.type == SDL_WINDOWEVENT) {
+            if (event.window.event == SDL_WINDOWEVENT_SIZE_CHANGED) {
+                io.DisplaySize.x = static_cast<float>(event.window.data1);
+                io.DisplaySize.y = static_cast<float>(event.window.data2);
+            }
+        }
     }
+
+    io.DeltaTime = 1.f / 60.f;
+    int x;
+    int y;
+    const int btns = SDL_GetMouseState(&x, &y);
+    io.MousePos = ImVec2(x, y);
+    io.MouseDown[0] = btns & SDL_BUTTON(SDL_BUTTON_LEFT);
+    io.MouseDown[1] = btns & SDL_BUTTON(SDL_BUTTON_RIGHT);
+
 
     if (input->KeyUp(SDL_SCANCODE_ESCAPE))
-        
         quit = true;
 
-    if (input->KeyStillDown(SDL_SCANCODE_A) || input->KeyStillDown(SDL_SCANCODE_LEFT)) {
-        image->setPosition(image->x - 0.1f, image->y);
+    if (input->KeyStillDown(SDL_SCANCODE_A)) {
+        image1->setPosition(image1->x - 0.1f, image1->y);
     }
 
-    if (input->KeyStillDown(SDL_SCANCODE_D) || input->KeyStillDown(SDL_SCANCODE_RIGHT)) {
-        image->setPosition(image->x + 0.1f, image->y);
+    if (input->KeyStillDown(SDL_SCANCODE_D)) {
+        image1->setPosition(image1->x + 0.1f, image1->y);
     }
 
-    if (input->KeyStillDown(SDL_SCANCODE_W) || input->KeyStillDown(SDL_SCANCODE_UP)) {
-        image->setPosition(image->x, image->y - 0.1f);
+    if (input->KeyStillDown(SDL_SCANCODE_W)) {
+        image1->setPosition(image1->x, image1->y - 0.1f);
     }
 
-    if (input->KeyStillDown(SDL_SCANCODE_S) || input->KeyStillDown(SDL_SCANCODE_DOWN)) {
-        image->setPosition(image->x, image->y + 0.1f);
+    if (input->KeyStillDown(SDL_SCANCODE_S)) {
+        image1->setPosition(image1->x, image1->y + 0.1f);
     }
 
-    if (input->KeyStillDown(SDL_SCANCODE_Q)) {
-        image->setSize(image->w - 0.1f, image->h - 0.1f);
+    if (input->KeyStillDown(SDL_SCANCODE_LEFT)) {
+        image2->setPosition(image2->x - 0.1f, image2->y);
     }
 
-    if (input->KeyStillDown(SDL_SCANCODE_E)) {
-        image->setSize(image->w + 0.1f, image->h + 0.1f);
+    if (input->KeyStillDown(SDL_SCANCODE_RIGHT)) {
+        image2->setPosition(image2->x + 0.1f, image2->y);
+    }
+
+    if (input->KeyStillDown(SDL_SCANCODE_UP)) {
+        image2->setPosition(image2->x, image2->y - 0.1f);
+    }
+
+    if (input->KeyStillDown(SDL_SCANCODE_DOWN)) {
+        image2->setPosition(image2->x, image2->y + 0.1f);
     }
 
     if (input->MouseUp(SDL_BUTTON_RIGHT))
@@ -112,10 +146,19 @@ void Core::Update() {
 }
 
 void Core::Draw() {
-    image->Draw();
+    ImGui::NewFrame();
+    ImGui::ShowDemoWindow();
+
+    SDL_SetRenderDrawColor(renderer, 128, 255, 128, 255); // Light Green
+    SDL_RenderClear(renderer);
+
+    image1->Draw();
+    image2->Draw();
+
+    ImGui::Render();
+    ImGuiSDL::Render(ImGui::GetDrawData());
 
     SDL_RenderPresent(renderer);
-    SDL_RenderClear(renderer);
 }
 
 Core::~Core() {

@@ -5,7 +5,7 @@
 #include <tuple>
 #include "Image.h"
 
-Image::Image(std::string filename, int x, int y, SDL_Renderer* renderer) : x(_x), y(_y), w(_w), h(_h) {
+Image::Image(std::string filename, int x, int y, int w, int h, SDL_Renderer* renderer) : x(_x), y(_y), w(_w), h(_h) {
     surface = SDL_LoadBMP(Utils::stringToChar("images/" + filename));
 
     if (surface == nullptr) {
@@ -17,15 +17,13 @@ Image::Image(std::string filename, int x, int y, SDL_Renderer* renderer) : x(_x)
 
     rect.x = x;
     rect.y = y;
-    rect.w = surface->w / 2;
-    rect.h = surface->h / 2;
+    rect.w = w;
+    rect.h = h;
 
     _x = x;
     _y = y;
-    _w = surface->w / 2;
-    _h = surface->h / 2;
-
-    SDL_FreeSurface(surface);
+    _w = w;
+    _h = h;
 
     Image::renderer = renderer;
 
@@ -34,6 +32,10 @@ Image::Image(std::string filename, int x, int y, SDL_Renderer* renderer) : x(_x)
 
 std::tuple<float, float> Image::getPosition() {
     return {x, y};
+}
+
+std::tuple<int, int> Image::GetSurfaceSize() {
+    return {surface->w, surface->h};
 }
 
 void Image::setPosition(float x, float y) {
@@ -64,4 +66,5 @@ bool Image::Draw() {
 }
 
 Image::~Image() {
+    SDL_FreeSurface(surface);
 }

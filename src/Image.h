@@ -24,7 +24,7 @@ public:
     const float &w;
     const float &h;
 
-    Image(std::string filename, int x, int y, SDL_Renderer* renderer);
+    Image(std::string filename, int x, int y, int w, int h, SDL_Renderer* renderer);
     ~Image();
 
     bool Draw();
@@ -32,6 +32,8 @@ public:
     std::tuple<float, float> getPosition();
     std::tuple<float, float> getSize();
     void setPosition(float x, float y);
+
+    std::tuple<int, int> GetSurfaceSize();
     void setSize(float w, float h);
 };
 

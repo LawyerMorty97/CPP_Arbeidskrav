@@ -13,6 +13,9 @@
 #include "Utils.h"
 #include "InputManager.h"
 
+#include "imgui/imgui.h"
+#include "imgui/imgui_sdl.h"
+
 #include "Image.h"
 
 class Core {
@@ -20,6 +23,7 @@ public:
     static Core* instance();
 
     void Setup(std::string title, int w_size, int h_size);
+    ~Core();
 protected:
     int w_width, w_height; // Window dimensions
     bool quit = false;
@@ -33,14 +37,14 @@ protected:
 
     InputManager* input;
 
-    Image* image;
+    Image* image1;
+    Image* image2;
 private:
     static Core* inst_;
 
     Core() {
 
     };
-    ~Core();
 
     void SetupSDL();
     void Quit();

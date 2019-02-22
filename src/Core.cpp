@@ -144,14 +144,26 @@ void Core::Update() {
     if (input->KeyStillDown(SDL_SCANCODE_DOWN)) {
         image2->setPosition(image2->x, image2->y + 0.1f);
     }
-
-    if (input->MouseUp(SDL_BUTTON_RIGHT))
-        quit = true;
 }
 
 void Core::Draw() {
     ImGui::NewFrame();
-    ImGui::ShowDemoWindow();
+    //ImGui::ShowDemoWindow();
+
+    ImGuiIO &io = ImGui::GetIO();
+
+    ImGui::SetNextWindowBgAlpha(0.3f);
+    ImGui::Begin("Example: Simple Overlay", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoFocusOnAppearing | ImGuiWindowFlags_NoNav);
+    ImGui::Text("Simple overlay\nIn the corner of the screen\n(right-click to position)");
+    ImGui::Separator();
+    if (ImGui::IsMousePosValid())
+        ImGui::Text("Mouse Position: (%.1f, %.1f)", io.MousePos.x, io.MousePos.y);
+    else
+        ImGui::Text("Mouse Position: <invalid>");
+    if (ImGui::BeginPopupContextWindow()) {
+        ImGui::EndPopup();
+    }
+    ImGui::End();
 
     SDL_SetRenderDrawColor(renderer, 128, 255, 128, 255); // Light Green
     SDL_RenderClear(renderer);

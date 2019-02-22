@@ -12,6 +12,12 @@ char* Utils::stringToChar(std::string str) {
     return result;
 }
 
+std::string Utils::intToString(int num) {
+    std::string str = std::to_string(num);
+
+    return str;
+}
+
 void Utils::message(std::string msg) {
     std::cout << "MESSAGE: " << msg << "." << std::endl;
 }

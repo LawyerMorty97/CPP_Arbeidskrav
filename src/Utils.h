@@ -11,6 +11,7 @@
 class Utils {
 public:
     static char* stringToChar(std::string str);
+    static std::string intToString(int num);
 
     static void message(std::string msg);
     static void error(std::string msg);

@@ -29,22 +29,23 @@ public:
     void Update();
 
 protected:
-    const Uint8* keys;
-    std::unique_ptr<Uint8> oldKeys;
-    int keyCount;
+    const Uint8* m_keys;
+    std::unique_ptr<Uint8> m_oldKeys;
+    int m_keyCount;
 
-    int mouseX, mouseY;
+    int m_mouseX;
+    int m_mouseY;
 
-    Uint32 buttons;
-    Uint32 oldButtons;
+    Uint32 m_buttons;
+    Uint32 m_oldButtons;
 private:
     static InputManager *inst_;
 
     InputManager() {
-        keys = SDL_GetKeyboardState(&keyCount);
-        oldKeys = std::unique_ptr<Uint8>(new Uint8[keyCount]);
+        m_keys = SDL_GetKeyboardState(&m_keyCount);
+        m_oldKeys = std::unique_ptr<Uint8>(new Uint8[m_keyCount]);
 
-        buttons = SDL_GetRelativeMouseState(&mouseX, &mouseY);
+        m_buttons = SDL_GetRelativeMouseState(&m_mouseX, &m_mouseY);
     }
 };
 

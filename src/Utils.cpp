@@ -4,12 +4,9 @@
 
 #include "Utils.h"
 
-char* Utils::stringToChar(std::string str) {
-    char* result;
+const char* Utils::stringToChar(std::string str) {
 
-    result = const_cast<char*>(str.c_str());
-
-    return result;
+    return str.c_str();
 }
 
 std::string Utils::intToString(int num) {

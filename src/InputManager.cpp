@@ -15,68 +15,68 @@ InputManager* InputManager::instance() {
 }
 
 void InputManager::Update() {
-    oldButtons = buttons;
-    memcpy(oldKeys.get(), keys, keyCount * sizeof(Uint8));
+    m_oldButtons = m_buttons;
+    memcpy(m_oldKeys.get(), m_keys, m_keyCount * sizeof(Uint8));
 
     SDL_PumpEvents();
 
-    keys = SDL_GetKeyboardState(&keyCount);
-    buttons = SDL_GetRelativeMouseState(&mouseX, &mouseY);
+    m_keys = SDL_GetKeyboardState(&m_keyCount);
+    m_buttons = SDL_GetRelativeMouseState(&m_mouseX, &m_mouseY);
 
 }
 
 bool InputManager::KeyDown(int iKeyIndex) {
-    bool current_state = keys[iKeyIndex];
-    bool last_state = oldKeys.get()[iKeyIndex];
+    bool current_state = m_keys[iKeyIndex];
+    bool last_state = m_oldKeys.get()[iKeyIndex];
     return (current_state && !last_state);
 }
 
 bool InputManager::KeyUp(int iKeyIndex) {
-    bool current_state = keys[iKeyIndex];
-    bool last_state = oldKeys.get()[iKeyIndex];
+    bool current_state = m_keys[iKeyIndex];
+    bool last_state = m_oldKeys.get()[iKeyIndex];
     return (!current_state && last_state);
 }
 
 bool InputManager::KeyStillDown(int iKeyIndex) {
-    bool current_state = keys[iKeyIndex];
-    bool last_state = oldKeys.get()[iKeyIndex];
+    bool current_state = m_keys[iKeyIndex];
+    bool last_state = m_oldKeys.get()[iKeyIndex];
     return (current_state && last_state);
 }
 
 std::tuple<int, int> InputManager::MousePosition() {
-    return {mouseX, mouseY};
+    return {m_mouseX, m_mouseY};
 }
 
 bool InputManager::KeyStillUp(int iKeyIndex) {
-    bool current_state = keys[iKeyIndex];
-    bool last_state = oldKeys.get()[iKeyIndex];
+    bool current_state = m_keys[iKeyIndex];
+    bool last_state = m_oldKeys.get()[iKeyIndex];
     return (!current_state && !last_state);
 }
 
 bool InputManager::MouseDown(int iButton) {
-    bool current_state = buttons & SDL_BUTTON(iButton);
-    bool last_state = oldButtons & SDL_BUTTON(iButton);
+    bool current_state = m_buttons & SDL_BUTTON(iButton);
+    bool last_state = m_oldButtons & SDL_BUTTON(iButton);
 
     return (current_state && !last_state);
 }
 
 bool InputManager::MouseUp(int iButton) {
-    bool current_state = buttons & SDL_BUTTON(iButton);
-    bool last_state = oldButtons & SDL_BUTTON(iButton);
+    bool current_state = m_buttons & SDL_BUTTON(iButton);
+    bool last_state = m_oldButtons & SDL_BUTTON(iButton);
 
     return (!current_state && last_state);
 }
 
 bool InputManager::MouseStillDown(int iButton) {
-    bool current_state = buttons & SDL_BUTTON(iButton);
-    bool last_state = oldButtons & SDL_BUTTON(iButton);
+    bool current_state = m_buttons & SDL_BUTTON(iButton);
+    bool last_state = m_oldButtons & SDL_BUTTON(iButton);
 
     return (current_state && last_state);
 }
 
 bool InputManager::MouseStillUp(int iButton) {
-    bool current_state = buttons & SDL_BUTTON(iButton);
-    bool last_state = oldButtons & SDL_BUTTON(iButton);
+    bool current_state = m_buttons & SDL_BUTTON(iButton);
+    bool last_state = m_oldButtons & SDL_BUTTON(iButton);
 
     return (!current_state && !last_state);
 }

@@ -13,27 +13,23 @@ if(${APPLE})
     find_package(OpenGL REQUIRED)
 
     include_directories(${SDL2_INCLUDE_DIR} ${SDL2_IMAGE_INCLUDE_DIR} ${SDL2_TTF_INCLUDE_DIR} ${OPENGL_INCLUDE_DIR})
-elseif (${WIN32})
-    message("Preparing Win32 project")
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -lSDL2 -lSDL_ttf")
-
-    set(INC_DIR "${PROJECT_SOURCE_DIR}/include") #Include Directory
-    set(LIB_DIR "${PROJECT_SOURCE_DIR}/library") #Library Directory
-    find_package(OpenGL REQUIRED)
-
-    set(SDL2_LIB "${LIB_DIR}/libSDL2.dll.a;${LIB_DIR}/libSDL2main.a")
-    set(SDL2_TTF_LIB "${LIB_DIR}/libSDL2_ttf.dll.a")
-    include_directories(${INC_DIR} ${OPENGL_INCLUDE_DIR})
 else()
-    message("Preparing Linux project")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -lSDL2 -lSDL_ttf")
 
     set(INC_DIR "${PROJECT_SOURCE_DIR}/include") #Include Directory
     set(LIB_DIR "${PROJECT_SOURCE_DIR}/library") #Library Directory
     find_package(OpenGL REQUIRED)
 
-    set(SDL2_LIB "${LIB_DIR}/libSDL2.a;${LIB_DIR}/libSDL2main.a")
-    set(SDL2_TTF_LIB "${LIB_DIR}/libSDL2_ttf.a")
+    if(${WIN32})
+        message("Preparing Win32 project")
+        set(SDL2_LIB "${LIB_DIR}/libSDL2.dll.a;${LIB_DIR}/libSDL2main.a")
+        set(SDL2_TTF_LIB "${LIB_DIR}/libSDL2_ttf.dll.a")
+    else()
+        message("Preparing Linux project")
+        set(SDL2_LIB "${LIB_DIR}/libSDL2.a;${LIB_DIR}/libSDL2main.a")
+        set(SDL2_TTF_LIB "${LIB_DIR}/libSDL2_ttf.a")
+    endif()
+
     include_directories(${INC_DIR} ${OPENGL_INCLUDE_DIR})
 endif()
 
